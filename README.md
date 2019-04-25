@@ -139,7 +139,7 @@ Header | Length | phage_score | chromosome_score | plasmid_score | Possible_sour
 The content in `Header` column is the same with the header of corresponding sequence in the input file. The possible source is the catagory with the higest score. If PPR-Meta is executed under specified threshold, the sequence with the highest score lower than the threshold will be label as uncertain in `Possible_score` columns.
 
 **Note:**
-(1) The current version of PPR-Meta uses “comma-separated values (CSV)” as the format of the output file. Please use “.csv” as the extension of the output file. PPR-Meta will automatically add the “.csv” extension to the file name if the output file does not take “.csv” as its extension”
+(1) The current version of PPR-Meta uses “comma-separated values (CSV)” as the format of the output file. Please use “.csv” as the extension of the output file. PPR-Meta will automatically add the “.csv” extension to the file name if the output file does not take “.csv” as its extension”.
 (2) If you want to run multiple tasks at the same time (either on physical host or virtual machine), please copy PPR-Meta package into different folders and run different tasks under different folders. Do not run different tasks under the same folder.
 
 
