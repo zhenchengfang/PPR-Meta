@@ -154,7 +154,7 @@ The content in `Header` column is the same with the header of corresponding sequ
 
 
 # Citation
-[Fang, Z., Tan, J., Wu, S., Li, M., Xu, C., Xie, Z., and Zhu, H. (2019). PPR-Meta: a tool for identifying phages and plasmids from metagenomic fragments using deep learning. GigaScience, 8(6), giz066.] (https://doi.org/10.1093/gigascience/giz066)
++ [Fang, Z., Tan, J., Wu, S., Li, M., Xu, C., Xie, Z., and Zhu, H. (2019). PPR-Meta: a tool for identifying phages and plasmids from metagenomic fragments using deep learning. GigaScience, 8(6), giz066.] (https://doi.org/10.1093/gigascience/giz066)
 
 # Contact
 Any question, please do not hesitate to contact me: fangzc@pku.edu.cn
