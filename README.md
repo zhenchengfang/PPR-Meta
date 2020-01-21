@@ -15,7 +15,7 @@
 PPR-Meta is designed to identify metagenomic sequences as phages, chromosomes or plasmids. The program calculate three score reflecting the likelihood of each input fragment as phage, chromosome or plasmid. PPR-Meta can run either on the virtual machine or physical host. For non-computer professionals, we recommend running the virtual machine version of PPR-Meta on local PC. In this way, users do not need to install any dependency package. If GPU is available, you can also choose to run the physical host version. This version can automatically speed up with GPU and is more suitable to handle large scale data. The program is also available at http://cqb.pku.edu.cn/ZhuLab/PPR_Meta/.
 
 ## Version
-+ PPR-Meta 1.0 (Tested on Ubuntu 16.04)
++ PPR-Meta 1.1 (Tested on Ubuntu 16.04)
 
 ## Requirements
 ------------
@@ -119,13 +119,23 @@ The installation of the virtual machine is much easier. Please refer to [Manual.
   
 ### 3. Run PPR-Meta with specified threshold
 
-  For each input sequence, PPR-Meta will output three scores (between 0 to 1), representing the probability that the sequence belongs to a phage, chromosome or plasmid. By default, the prediction of PPR-Meta is the category with the highest score. Users can also specify a threshold. In this way, a sequence with a highest score lower than the threshold will be labelled as "uncertain". In general, with a higher threshold, the percentage of uncertain predictions will be higher while the remaining predictions will be more reliable. For example, if you want to get reliable phage and plasmid sequences in the file "example.fna", you can take 0.7 as the threshold. Please execute:
+  For each input sequence, PPR-Meta will output three scores (between 0 to 1), representing the probability that the sequence belongs to a phage, chromosome or plasmid. By default, the prediction of PPR-Meta is the category with the highest score. Users can also specify a threshold. In this way, a sequence with a highest score lower than the threshold will be labelled as "uncertain". In general, with a higher threshold, the percentage of uncertain predictions will be higher while the remaining predictions will be more reliable. For example, if you want to get reliable phage and plasmid sequences in the file "example.fna", you can take 0.7 as the threshold. Please run PPR_Meta using -t option:
   
-    ./PPR_Meta example.fna result.csv 0.7 (by executable file)
+    ./PPR_Meta example.fna result.csv -t 0.7 (by executable file)
     or
-    PPR_Meta('example.fna','result.csv','0.7') (by MATLAB script)
+    PPR_Meta('example.fna','result.csv','-t','0.7') (by MATLAB script)
+
+### 4. Run PPR-Meta over a large file
+
+  If the RAM of your machine is small, or your file is very large, you can you -b option to let the program read the file in block to reduce the memory requirements and speed up the program. For example, if you want to let the program to predict 1000 sequences at a time, please execute:
+  
+    ./PPR_Meta example.fna result.csv -b 1000 (by executable file)
+    or
+    PPR_Meta('example.fna','result.csv','-b','1000') (by MATLAB script)
     
-### 4. Run PPR-Meta in virtual machine
+The default value of -b is 10000.
+
+### 5. Run PPR-Meta in virtual machine
 
   We recommend that non-computer professionals run PPR-Meta in this way. The virtual machine version of PPR-Meta run through the executable file (see item 1 above). Please refer to [Manual.pdf](http://cqb.pku.edu.cn/ZhuLab/PPR_Meta/Manual.pdf) or the [video guide](http://cqb.pku.edu.cn/ZhuLab/PPR_Meta/Video_Guide.mp4) for a step by step guide to see how to run PPR-Meta in the vertual machine. 
   
@@ -140,11 +150,11 @@ The content in `Header` column is the same with the header of corresponding sequ
 
 **Note:**
 (1) The current version of PPR-Meta uses “comma-separated values (CSV)” as the format of the output file. Please use “.csv” as the extension of the output file. PPR-Meta will automatically add the “.csv” extension to the file name if the output file does not take “.csv” as its extension”.
-(2) If you want to run multiple tasks at the same time (either on physical host or virtual machine), please copy PPR-Meta package into different folders and run different tasks under different folders. Do not run different tasks under the same folder.
+(2) The version 1.1 of the program allows run mutiple tasks in parallel. However, running mutiple same tasks (with the same input file under the same '-t' and '-b' setting will throw error. 
 
 
 # Citation
-Zhencheng Fang, Jie Tan, Shufang Wu, Mo Li, Congmin Xu, Zhongjie Xie and Huaiqiu Zhu. PPR-Meta: a tool for identifying phages and plasmids from metagenomic fragments using deep learning. 
+[Fang, Z., Tan, J., Wu, S., Li, M., Xu, C., Xie, Z., and Zhu, H. (2019). PPR-Meta: a tool for identifying phages and plasmids from metagenomic fragments using deep learning. GigaScience, 8(6), giz066.] (https://doi.org/10.1093/gigascience/giz066)
 
 # Contact
 Any question, please do not hesitate to contact me: fangzc@pku.edu.cn
