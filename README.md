@@ -117,7 +117,7 @@ The installation of the virtual machine is much easier. Please refer to [Manual.
     
   Please remember to set the working path of MATLAB to PPR-Meta folder before running the programe.
   
-### 3. Run PPR-Meta with specified threshold
+### 3. Run PPR-Meta with specified threshold (-t option)
 
   For each input sequence, PPR-Meta will output three scores (between 0 to 1), representing the probability that the sequence belongs to a phage, chromosome or plasmid. By default, the prediction of PPR-Meta is the category with the highest score. Users can also specify a threshold. In this way, a sequence with a highest score lower than the threshold will be labelled as "uncertain". In general, with a higher threshold, the percentage of uncertain predictions will be higher while the remaining predictions will be more reliable. For example, if you want to get reliable phage and plasmid sequences in the file "example.fna", you can take 0.7 as the threshold. Please run PPR_Meta using -t option:
   
@@ -125,7 +125,7 @@ The installation of the virtual machine is much easier. Please refer to [Manual.
     or
     PPR_Meta('example.fna','result.csv','-t','0.7') (by MATLAB script)
 
-### 4. Run PPR-Meta over a large file
+### 4. Run PPR-Meta over a large file (-b option)
 
   If the RAM of your machine is small, or your file is very large, you can you -b option to let the program read the file in block to reduce the memory requirements and speed up the program. For example, if you want to let the program to predict 1000 sequences at a time, please execute:
   
